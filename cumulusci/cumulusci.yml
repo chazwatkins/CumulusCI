@@ -1359,6 +1359,22 @@ services:
             username:
                 description: Username or alias of the SFDX org to use as a Dev Hub
                 required: True
+    gitlab:
+        description: Configure connection for gitlab tasks.
+        attributes:
+            username:
+                description: The GitLab username to use for tasks.
+                required: True
+            server_domain:
+                description: The domain for self-hosted GitLab instance e.g. https://mygitlab.company.com
+                required: False
+            token:
+                description: Personal Access Token
+                required: True
+                sensitive: True
+                default_factory: cumulusci.core.gitlab.get_oauth_device_flow_token
+        validator: cumulusci.core.gitlab.validate_service
+
     github:
         description: Configure connection for github tasks, e.g. Create Release
         attributes:

@@ -283,3 +283,6 @@ class PackageInstallError(Exception):
 
 class YAMLParseException(CumulusCIException):
     """Error parsing a YAML File"""
+
+class GitProviderException(CumulusCIException):
+    pass
